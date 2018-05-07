@@ -5,3 +5,8 @@ VALUES
     ("Quarter-pounder with cheese", 0),
     ("Mushroom and Swiss", 0),
     ("Veggie Burger", 0);
+
+
+
+SELECT *
+FROM burgers_db; 
