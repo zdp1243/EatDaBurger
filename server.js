@@ -1,9 +1,11 @@
 //Require Dependencies
 var express = require("express");
 var bodyparser = require("body-parser");
+var connection = require("./config/connection.js");
 var exphbs = require("express-handlebars");
+var mysql = require("mysql");
 
-var db = require("../models");
+// var db = require("../models");
 
 //Set up PORT
 var PORT = process.env.PORT || 3000;
@@ -14,12 +16,12 @@ var app = express();
 app.use(express.static(process.cwd() + "/public"));
 
 // Parse app/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyparser.urlencoded({ extended: false }));
 // Parse app/json
-app.use(bodyParser.json());
+app.use(bodyparser.json());
 
 //Override with POST having ?_method=DELETE
-app.use(methodOverride("_method"));
+// app.use(methodOverride("_method"));
 
 // Set Handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));

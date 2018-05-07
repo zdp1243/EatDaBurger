@@ -1,7 +1,8 @@
 <div class="container bg">
     <div class="row">
         <div class="center col-sm-12">
-            <img src="assets/img/burger.php" alt="Burger Photo" <h1> Eat Da Burger App </h1>
+            <img src="../assets/img/burger.gif" alt="Burger Photo">
+            <h1> Eat Da Burger App </h1>
 
         </div>
     </div>
@@ -18,7 +19,7 @@
             <li>
                 {{this.id}} {{this.burger_name}}
 
-                <form action="/{{this.id}} ?_method=PUT" method="POST">
+                <form class="devour-burger">
                     <input type="hidden" name="devoured" value="true">
                     <button class="btn-danger" type="submit">DEVOUR IT!!!</button>
                 </form>
@@ -42,7 +43,7 @@
 <div class="row">
     <div class="col-sm-12">
         <h2>ADD A BURGER!!!</h2>
-        <form class="create-update-form" action="/" method="POST">
+        <form class="create-update-form" action="/burgers/create" method="POST">
             <div class="form-group">
                 <p>Enter a burger you'd like to eat and click Submit Order button.</p>
                 <input type="text" id="ca" name="burger_name">
