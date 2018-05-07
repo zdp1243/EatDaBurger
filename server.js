@@ -3,7 +3,7 @@ var express = require("express");
 var bodyparser = require("body-parser");
 var exphbs = require("express-handlebars");
 
-var db = require("./models");
+var db = require("../models");
 
 //Set up PORT
 var PORT = process.env.PORT || 3000;
