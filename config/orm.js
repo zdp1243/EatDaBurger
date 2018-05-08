@@ -12,7 +12,7 @@ function printQuestionMarks(num) {
 }
 
 //Helper function, SQL Syntax
-function objToSQL(ob) {
+function objToSql(ob) {
   var arr = [];
 
   for (var key in ob) {
@@ -57,9 +57,9 @@ var orm = {
   updateOne: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
-    queryString += "SET ";
+    queryString += " SET ";
     queryString += objToSql(objColVals);
-    queryString += "WHERE ";
+    queryString += " WHERE ";
     queryString += condition;
 
     console.log(queryString);
@@ -67,6 +67,7 @@ var orm = {
       if (err) {
         throw err;
       }
+      console.log("orm");
       cb(result);
     });
   }

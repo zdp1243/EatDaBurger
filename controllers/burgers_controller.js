@@ -30,23 +30,20 @@ router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
+  burger.updateOne(condition, function(data) {
+    console.log("bc");
+    res.sendStatus(200);
 
-  burger.updateOne(
-    {
-      devoured: req.body.devoured
-    },
-    condition,
-    function() {
-      res.redirect("/");
-    }
-  );
+    // res.redirect("/");
+  });
 });
 
 router.delete("/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
-  burger.delete(condition, function() {
-    res.redirect("/");
+  burger.delete(condition, function(data) {
+    res.sendStatus(200);
+    //res.redirect("/");
   });
 });
 

@@ -1,18 +1,19 @@
 // Wait to attach handlers until DOM is fully loaded
 
-$(function() {
-  $(".devour-burger").on("click", function(event) {
-    var id = $(this).data("id");
-    var newBurger = $(this).data("id");
-    console.log("put burger id " + id);
-  });
+//$(function() {
+$(document).on("click", ".devour-burger", function(event) {
+  event.preventDefault();
+  var id = $(this).data("id");
+  console.log("put burger id " + id);
+  //});
 
   // Send the PUT request.
   $.ajax({
     type: "PUT",
-    url: "api/burgers/" + id
+    url: "api/burgers/" + id,
+    devoured: true
   }).then(function() {
-    console.log("Changed devour to", newBurger);
+    //console.log("Changed devour to", newBurger);
     // Reload the page to get the updated list
     location.reload();
   });
