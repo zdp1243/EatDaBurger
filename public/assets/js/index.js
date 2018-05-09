@@ -1,11 +1,9 @@
 // Wait to attach handlers until DOM is fully loaded
 
-//$(function() {
 $(document).on("click", ".devour-burger", function(event) {
   event.preventDefault();
   var id = $(this).data("id");
   console.log("put burger id " + id);
-  //});
 
   // Send the PUT request.
   $.ajax({
@@ -18,17 +16,17 @@ $(document).on("click", ".devour-burger", function(event) {
     location.reload();
   });
 });
-$(".create-form").on("submit", function(event) {
+$(".create-form").on("click", function(event) {
   // Make sure to preventDefault on a submit event.
   event.preventDefault();
 
   var newBurger = {
-    burger_name: $("#ca")
-      .val()
-      .trim(),
-    devoured: $("[name=devoured]:checked")
+    burger_name: $("#cb")
       .val()
       .trim()
+    // devoured: $("[name=devoured]:checked")
+    // .val()
+    // .trim()
   };
 
   // Send the POST request.
@@ -44,8 +42,6 @@ $(".create-form").on("submit", function(event) {
 
 $(".delete-burger").on("click", function(event) {
   var id = $(this).data("id");
-
-  //       // Send the DELETE request.
   $.ajax("/api/burgers/" + id, {
     type: "DELETE"
   }).then(function() {

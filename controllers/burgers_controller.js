@@ -19,7 +19,8 @@ router.post("/burgers/create", function(req, res) {
   console.log("post received");
   burger.createOne(
     ["burger_name", "devoured"],
-    [req.body.burger_name, req.body.devoured],
+    [req.body.burger_name, false],
+    // req.body.devoured],
     function() {
       res.redirect("/");
     }
